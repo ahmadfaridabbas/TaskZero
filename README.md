@@ -1,56 +1,101 @@
 # TaskZero
 
-**One click. Zero clutter.**
+A native SwiftUI menu-bar app for **closing apps and background processes** on macOS 13 Ventura or newer. Review everything that's running, pick what to close, and let TaskZero end it safely — no Activity Monitor, no `kill`, no Terminal required.
 
-TaskZero is a native SwiftUI macOS menu-bar utility for reviewing and closing user-owned applications and verified third-party background processes. It uses Apple's process and application APIs locally and leaves anything it cannot confidently identify untouched.
+**[Website](https://ahmadfaridabbas.github.io/TaskZero/)** · **[Download](https://github.com/ahmadfaridabbas/TaskZero/releases/latest)** · macOS 13+ · Apple Silicon &amp; Intel
 
-## Requirements
+![TaskZero icon](docs/assets/icon-512.png)
 
-- macOS 13 Ventura or later
-- Xcode 15 or later (the project is validated with Xcode 27.2)
-- Swift 5 language mode
+## 🛡️ It would rather do nothing than do harm
 
-The bundle identifier is `net.ahmadfaridabbas.TaskZero` and the deployment target is macOS 13.0.
+TaskZero only ever closes things it can prove are yours and safe to close. Every candidate passes a layered, **default-deny** check, and its identity is re-validated again in the instant before any force action — so a process it can't confidently identify is **left untouched**, never force-quit by mistake.
 
-## Build
+TaskZero **never** uses `sudo`, **never** changes SIP or Gatekeeper, **never** unloads launch agents or daemons, and **never** escalates privileges. Inspection and cleanup happen entirely on your Mac: no account, no analytics, no telemetry, no network calls.
 
-Open `TaskZero.xcodeproj` in Xcode and select the **TaskZero** scheme. From Terminal:
+<details>
+<summary><b>Details — exactly what is eligible, and what is always protected</b></summary>
 
-```sh
-xcodebuild \
-  -project TaskZero.xcodeproj \
-  -scheme TaskZero \
-  -configuration Debug \
-  -sdk macosx \
-  build \
-  CODE_SIGNING_ALLOWED=NO
-```
+**Eligible for cleanup**
 
-The unsigned development bundle is written to Xcode's DerivedData products directory. A local archive can be created with:
+- Regular GUI applications owned by the current user with a verified Apple or Developer-ID signature.
+- Developer-ID / ad-hoc signed background processes owned by the current user.
+
+**Always protected — never targeted**
+
+- **TaskZero itself**, and any process with an invalid PID.
+- **Other users' and root-owned processes** — anything not owned by you.
+- **Critical macOS session processes** — `launchd`, `WindowServer`, `loginwindow`, `Finder`, `Dock`, `SystemUIServer`, and friends.
+- **Apple-signed background services** and anything in a protected system location (`/System`, `/usr/libexec`, `/sbin`, …).
+- **Unknown or unverifiable identities** — if the code signature can't be confirmed, it stays protected.
+- **Anything you've excluded** — a user exclusion always wins over eligibility.
+
+**How a close actually happens**
+
+1. `ProcessInspector` takes one `libproc` snapshot: PID, parent PID, user, executable path, start time, resource data, bundle ID, and signature metadata.
+2. `ApplicationManager` discovers regular apps through `NSWorkspace.shared.runningApplications`.
+3. `ProcessSafetyManager` sorts every process into *eligible*, *protected*, or *excluded* using the rules above.
+4. Apps are asked to quit **gracefully** first; background processes get `SIGTERM` first.
+5. Before any **force** step, TaskZero waits, then re-validates the executable path, start time, and signature. A recycled PID or changed identity is skipped — not signalled.
+6. Only then, and only if you've enabled it, does it call `forceTerminate()` or send `SIGKILL`.
+
+You can **stop a cleanup mid-run** at any time; remaining items are recorded as skipped and no new signals are sent. The entire mechanism is open source under [`TaskZero/Services/`](TaskZero/Services/).
+
+</details>
+
+## The panel
+
+Everything lives in one menu-bar window — no Dock icon.
+
+| Overview | Review &amp; clean | Process monitor |
+| --- | --- | --- |
+| Live counts of applications, background processes, protected items, and exclusions. | A grouped preview of what will close, with per-item selection and search. | A live, **read-only** view of every process, with filters and search. |
+
+- **Overview** — a calm status card plus four metric tiles, a one-tap **Review & Clean**, and footer controls for History, Light/Dark, and Quit.
+- **Review cleanup** — applications and background processes in separate sections, each with a real app icon, PID, and signature. Select all, clear, or search; protected and excluded items are listed but never targeted.
+- **Process monitor** — inspection only; it never terminates anything. Expand a row for executable path, parent PID, user, bundle ID, signature, and team ID. Right-click to add an exclusion.
+- **Report & history** — every cleanup is summarized (graceful, force, could-not-close, skipped) and the last 20 runs are kept locally.
+
+See the full gallery on the **[website](https://ahmadfaridabbas.github.io/TaskZero/)**.
+
+## Features
+
+- Native SwiftUI `MenuBarExtra` panel with no Dock icon.
+- **Review before you close** — a clear preview separates your apps, verified background processes, protected system services, and your exclusions.
+- **Graceful first, force last** — apps are asked to quit normally; force-quit is a last resort, only for verified user-owned items, and only when you allow it.
+- **Stop any time** — cancel a cleanup mid-run; remaining items are skipped.
+- **Exclusions** — permanently skip VPNs, security tools, sync clients, audio services, or virtualization software, by process name or bundle identifier.
+- **Bounded, validated timeouts** — graceful and force timeouts are clamped to a 1–60 s range.
+- System / Light / Dark appearance, saved across launches and applied to every window.
+- Local-only history of recent cleanups, with a privacy note at [`docs/Privacy.md`](docs/Privacy.md).
+
+## Install
+
+1. Download and extract [the latest release](https://github.com/ahmadfaridabbas/TaskZero/releases/latest).
+2. Drag `TaskZero.app` to your Applications folder.
+3. Because TaskZero is open source and not notarized by Apple, macOS quarantines it on download. Run this once in Terminal to let it launch:
+
+   ```sh
+   xattr -dr com.apple.quarantine /Applications/TaskZero.app
+   ```
+4. Click the TaskZero glyph in the menu bar to open the panel. TaskZero does **not** open a window or show a Dock icon.
+
+This is a locally (ad-hoc) signed build, not Apple-notarized. The command above clears macOS's quarantine flag so the app opens cleanly; alternatively you can right-click → Open the first time or approve it in **System Settings → Privacy & Security**. Requires macOS 13 Ventura or later.
+
+## Build from source
+
+Open `TaskZero.xcodeproj` in Xcode and select the **TaskZero** scheme, or build from Terminal:
 
 ```sh
 xcodebuild \
   -project TaskZero.xcodeproj \
   -scheme TaskZero \
   -configuration Release \
-  -destination 'generic/platform=macOS' \
-  archive \
-  -archivePath build/TaskZero.xcarchive
+  -sdk macosx \
+  build \
+  CODE_SIGNING_ALLOWED=NO
 ```
 
-For distribution, choose a Developer ID signing team in Xcode or provide the appropriate signing settings at archive time. Notarization is intentionally not performed by this repository; complete signing, notarization, stapling, and Gatekeeper validation with the distribution account that owns the bundle identifier.
-
-### Sandboxing and hardened runtime
-
-TaskZero is **not** sandboxed and is **not** a Mac App Store app. A process-management
-utility must enumerate and signal the current user's own processes, which the macOS App
-Sandbox does not permit. The target therefore ships `TaskZero/TaskZero.entitlements` with
-`com.apple.security.app-sandbox` set to `false`, and builds with the **hardened runtime
-enabled** (`ENABLE_HARDENED_RUNTIME = YES`) so the app can be Developer ID signed and
-notarized. No hardened-runtime exceptions are required: TaskZero loads no third-party
-plug-ins, uses no JIT, and does not disable library validation.
-
-## Test
+Run the test suite with:
 
 ```sh
 xcodebuild test \
@@ -60,20 +105,9 @@ xcodebuild test \
   CODE_SIGNING_ALLOWED=NO
 ```
 
-The tests use mock termination providers and never signal a real process. They cover Apple/system protection, root ownership, unknown signatures, exclusions, graceful termination, force termination, PID identity checks, overlapping cleanup prevention, mid-cleanup cancellation, and timeout clamping.
+The tests use mock termination providers and never signal a real process. They cover Apple/system protection, root ownership, unknown signatures, exclusions, graceful and force termination, PID-identity revalidation, overlapping-cleanup prevention, mid-cleanup cancellation, and timeout clamping.
 
-## Safety model
-
-The cleanup pipeline is deliberately conservative:
-
-1. `ProcessInspector` takes one libproc snapshot and collects PID, parent PID, user, executable path, start time, resource data, bundle ID, and signature metadata.
-2. `ApplicationManager` discovers regular applications through `NSWorkspace.shared.runningApplications`.
-3. `ProcessSafetyManager` protects TaskZero, root/other-user processes, critical session services, Apple/system locations, Apple-signed background processes, unknown identities, and user exclusions.
-4. Current-user regular GUI applications with a verified Apple or third-party signature can receive a graceful close request. Only verified third-party processes are eligible for background cleanup; Apple background services remain protected.
-5. Applications receive a graceful termination request and background processes receive `SIGTERM` first.
-6. Before any force operation, TaskZero waits, revalidates executable identity and start time, then uses `forceTerminate()` or `SIGKILL` only when enabled.
-
-TaskZero never uses `sudo`, changes SIP or Gatekeeper, unloads launch agents/daemons, or escalates privileges. It does not terminate from the process monitor; that screen is inspection-only.
+TaskZero is **not** sandboxed and is **not** a Mac App Store app — a process-management utility must enumerate and signal the current user's own processes, which the App Sandbox forbids. It ships `TaskZero/TaskZero.entitlements` with the sandbox explicitly disabled and builds with the **hardened runtime enabled**, so it can be Developer ID signed and notarized for distribution.
 
 ## Project structure
 
@@ -85,17 +119,14 @@ TaskZero/
 ├── ViewModels/      Main-actor state for menu bar, settings, and monitor
 ├── Views/           Menu bar, preview, report, monitor, settings, history
 ├── Utilities/       Signature verification, constants, process helpers
-└── Resources/       Asset catalog and 1024 × 1024 SVG brand master
+└── Resources/       Asset catalog and brand master
+
+docs/                GitHub Pages website (served from /docs)
+TaskZeroTests/       XCTest suite with mock termination providers
 ```
 
-## Privacy
+## Status &amp; licensing
 
-Inspection and cleanup happen on the Mac. TaskZero has no account, analytics, telemetry, cloud processing, or external API calls. Preferences and cleanup summaries are stored in the app's local `UserDefaults` domain. See [`docs/Privacy.md`](docs/Privacy.md).
+TaskZero is an independent project. It uses only Apple's public process and application APIs and makes no network calls. The icon is a geometric zero with a termination mark; the master artwork lives at [`TaskZero/Resources/Branding/TaskZeroIcon.svg`](TaskZero/Resources/Branding/TaskZeroIcon.svg).
 
-## License
-
-TaskZero is released under the [MIT License](LICENSE).
-
-## Icon and branding
-
-The icon is a geometric zero with a termination mark rather than a broom or spray motif. The 1024 × 1024 master is available at `TaskZero/Resources/Branding/TaskZeroIcon.svg` and is included in the `AppIcon` asset catalog.
+TaskZero is released under the [MIT License](LICENSE). Copyright (c) 2026 Ahmad Farid Abbas.
