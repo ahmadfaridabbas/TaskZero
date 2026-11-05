@@ -4,7 +4,7 @@ A native SwiftUI menu-bar app for **closing apps and background processes** on m
 
 **[Website](https://ahmadfaridabbas.github.io/TaskZero/)** · **[Download](https://github.com/ahmadfaridabbas/TaskZero/releases/latest)** · macOS 13+ · Apple Silicon &amp; Intel
 
-![TaskZero icon](docs/assets/icon-512.png)
+![TaskZero main panel](docs/assets/panel-overview.png)
 
 ## 🛡️ It would rather do nothing than do harm
 
@@ -81,52 +81,8 @@ See the full gallery on the **[website](https://ahmadfaridabbas.github.io/TaskZe
 
 This is a locally (ad-hoc) signed build, not Apple-notarized. The command above clears macOS's quarantine flag so the app opens cleanly; alternatively you can right-click → Open the first time or approve it in **System Settings → Privacy & Security**. Requires macOS 13 Ventura or later.
 
-## Build from source
-
-Open `TaskZero.xcodeproj` in Xcode and select the **TaskZero** scheme, or build from Terminal:
-
-```sh
-xcodebuild \
-  -project TaskZero.xcodeproj \
-  -scheme TaskZero \
-  -configuration Release \
-  -sdk macosx \
-  build \
-  CODE_SIGNING_ALLOWED=NO
-```
-
-Run the test suite with:
-
-```sh
-xcodebuild test \
-  -project TaskZero.xcodeproj \
-  -scheme TaskZero \
-  -destination 'platform=macOS' \
-  CODE_SIGNING_ALLOWED=NO
-```
-
-The tests use mock termination providers and never signal a real process. They cover Apple/system protection, root ownership, unknown signatures, exclusions, graceful and force termination, PID-identity revalidation, overlapping-cleanup prevention, mid-cleanup cancellation, and timeout clamping.
-
-TaskZero is **not** sandboxed and is **not** a Mac App Store app — a process-management utility must enumerate and signal the current user's own processes, which the App Sandbox forbids. It ships `TaskZero/TaskZero.entitlements` with the sandbox explicitly disabled and builds with the **hardened runtime enabled**, so it can be Developer ID signed and notarized for distribution.
-
-## Project structure
-
-```text
-TaskZero/
-├── App/             Application lifecycle and MenuBarExtra scene
-├── Models/          Codable process, settings, exclusion, and result models
-├── Services/        libproc, NSWorkspace, termination, safety, persistence
-├── ViewModels/      Main-actor state for menu bar, settings, and monitor
-├── Views/           Menu bar, preview, report, monitor, settings, history
-├── Utilities/       Signature verification, constants, process helpers
-└── Resources/       Asset catalog and brand master
-
-docs/                GitHub Pages website (served from /docs)
-TaskZeroTests/       XCTest suite with mock termination providers
-```
-
 ## Status &amp; licensing
 
-TaskZero is an independent project. It uses only Apple's public process and application APIs and makes no network calls. The icon is a geometric zero with a termination mark; the master artwork lives at [`TaskZero/Resources/Branding/TaskZeroIcon.svg`](TaskZero/Resources/Branding/TaskZeroIcon.svg).
+TaskZero is an independent project. It uses only Apple's public process and application APIs and makes no network calls.
 
 TaskZero is released under the [MIT License](LICENSE). Copyright (c) 2026 Ahmad Farid Abbas.
