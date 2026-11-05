@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+
+# Xcode build output / derived data
+build/
+DerivedData/
+*.xcarchive
+*.xcuserstate
+xcuserdata/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Release packaging artifacts
+dist/
+*.zip
+
+# Editor / tooling noise
+.opencode/

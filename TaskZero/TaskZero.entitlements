@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	  TaskZero is a process-management utility. It must enumerate and signal the
+	  current user's own processes, which the macOS App Sandbox does not permit.
+	  The app is therefore NOT sandboxed and is intended for Developer ID
+	  distribution with the hardened runtime and notarization, not the Mac App Store.
+	-->
+	<key>com.apple.security.app-sandbox</key>
+	<false/>
+
+	<!--
+	  Hardened runtime is enabled (see ENABLE_HARDENED_RUNTIME in the build
+	  settings). No additional runtime exceptions are required: TaskZero does not
+	  load third-party plug-ins, use JIT, or disable library validation.
+	-->
+</dict>
+</plist>

@@ -1,0 +1,325 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C00000000000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000001 /* AppDelegate.swift */; };
+		C00000000000000000000002 /* TaskZeroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000002 /* TaskZeroApp.swift */; };
+		C00000000000000000000003 /* CleanupConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000003 /* CleanupConfiguration.swift */; };
+		C00000000000000000000004 /* CleanupResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000004 /* CleanupResult.swift */; };
+		C00000000000000000000005 /* ProcessClassification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000005 /* ProcessClassification.swift */; };
+		C00000000000000000000006 /* ApplicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000006 /* ApplicationManager.swift */; };
+		C00000000000000000000007 /* CleanupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000007 /* CleanupManager.swift */; };
+		C00000000000000000000008 /* ExclusionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000008 /* ExclusionManager.swift */; };
+		C00000000000000000000009 /* LaunchAtLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000009 /* LaunchAtLoginManager.swift */; };
+		C0000000000000000000000A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000000000000000000000A /* NotificationManager.swift */; };
+		C0000000000000000000000B /* PreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000000000000000000000B /* PreferencesStore.swift */; };
+		C0000000000000000000000C /* ProcessClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000000000000000000000C /* ProcessClassifier.swift */; };
+		C0000000000000000000000D /* ProcessInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000000000000000000000D /* ProcessInspector.swift */; };
+		C0000000000000000000000E /* ProcessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000000000000000000000E /* ProcessManager.swift */; };
+		C0000000000000000000000F /* ProcessSafetyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000000000000000000000F /* ProcessSafetyManager.swift */; };
+		C00000000000000000000010 /* CodeSignatureVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000010 /* CodeSignatureVerifier.swift */; };
+		C00000000000000000000011 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000011 /* Constants.swift */; };
+		C00000000000000000000012 /* ProcessUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000012 /* ProcessUtilities.swift */; };
+		C00000000000000000000013 /* MenuBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000013 /* MenuBarViewModel.swift */; };
+		C00000000000000000000014 /* ProcessMonitorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000014 /* ProcessMonitorViewModel.swift */; };
+		C00000000000000000000015 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000015 /* SettingsViewModel.swift */; };
+		C00000000000000000000016 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000016 /* AboutView.swift */; };
+		C00000000000000000000017 /* CleanupHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000017 /* CleanupHistoryView.swift */; };
+		C00000000000000000000018 /* CleanupPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000018 /* CleanupPreviewView.swift */; };
+		C00000000000000000000019 /* CleanupReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000019 /* CleanupReportView.swift */; };
+		C0000000000000000000001A /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000000000000000000001A /* MenuBarView.swift */; };
+		C0000000000000000000001B /* ProcessMonitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000000000000000000001B /* ProcessMonitorView.swift */; };
+		C0000000000000000000001C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000000000000000000001C /* SettingsView.swift */; };
+		C0000000000000000000001D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0000000000000000000001D /* Assets.xcassets */; };
+		C0000000000000000000001E /* ProcessClassifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000000000000000000001E /* ProcessClassifierTests.swift */; };
+		C0000000000000000000001F /* ProcessSafetyManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000000000000000000001F /* ProcessSafetyManagerTests.swift */; };
+		C00000000000000000000020 /* CleanupManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000020 /* CleanupManagerTests.swift */; };
+		C00000000000000000000024 /* ProcessInspectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000028 /* ProcessInspectorTests.swift */; };
+		C00000000000000000000025 /* CleanupConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000029 /* CleanupConfigurationTests.swift */; };
+		C00000000000000000000021 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B00000000000000000000021 /* Security.framework */; };
+		C00000000000000000000022 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B00000000000000000000022 /* ServiceManagement.framework */; };
+		C00000000000000000000023 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B00000000000000000000023 /* UserNotifications.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D00000000000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A00000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A00000000000000000000003;
+			remoteInfo = TaskZero;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B00000000000000000000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B00000000000000000000002 /* TaskZeroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskZeroApp.swift; sourceTree = "<group>"; };
+		B00000000000000000000003 /* CleanupConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupConfiguration.swift; sourceTree = "<group>"; };
+		B00000000000000000000004 /* CleanupResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupResult.swift; sourceTree = "<group>"; };
+		B00000000000000000000005 /* ProcessClassification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessClassification.swift; sourceTree = "<group>"; };
+		B00000000000000000000006 /* ApplicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationManager.swift; sourceTree = "<group>"; };
+		B00000000000000000000007 /* CleanupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupManager.swift; sourceTree = "<group>"; };
+		B00000000000000000000008 /* ExclusionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExclusionManager.swift; sourceTree = "<group>"; };
+		B00000000000000000000009 /* LaunchAtLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginManager.swift; sourceTree = "<group>"; };
+		B0000000000000000000000A /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		B0000000000000000000000B /* PreferencesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesStore.swift; sourceTree = "<group>"; };
+		B0000000000000000000000C /* ProcessClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessClassifier.swift; sourceTree = "<group>"; };
+		B0000000000000000000000D /* ProcessInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessInspector.swift; sourceTree = "<group>"; };
+		B0000000000000000000000E /* ProcessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessManager.swift; sourceTree = "<group>"; };
+		B0000000000000000000000F /* ProcessSafetyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessSafetyManager.swift; sourceTree = "<group>"; };
+		B00000000000000000000010 /* CodeSignatureVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSignatureVerifier.swift; sourceTree = "<group>"; };
+		B00000000000000000000011 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B00000000000000000000012 /* ProcessUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessUtilities.swift; sourceTree = "<group>"; };
+		B00000000000000000000013 /* MenuBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarViewModel.swift; sourceTree = "<group>"; };
+		B00000000000000000000014 /* ProcessMonitorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessMonitorViewModel.swift; sourceTree = "<group>"; };
+		B00000000000000000000015 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		B00000000000000000000016 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		B00000000000000000000017 /* CleanupHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupHistoryView.swift; sourceTree = "<group>"; };
+		B00000000000000000000018 /* CleanupPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupPreviewView.swift; sourceTree = "<group>"; };
+		B00000000000000000000019 /* CleanupReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupReportView.swift; sourceTree = "<group>"; };
+		B0000000000000000000001A /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		B0000000000000000000001B /* ProcessMonitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessMonitorView.swift; sourceTree = "<group>"; };
+		B0000000000000000000001C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B0000000000000000000001D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B0000000000000000000001E /* ProcessClassifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessClassifierTests.swift; sourceTree = "<group>"; };
+		B0000000000000000000001F /* ProcessSafetyManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessSafetyManagerTests.swift; sourceTree = "<group>"; };
+		B00000000000000000000020 /* CleanupManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupManagerTests.swift; sourceTree = "<group>"; };
+		B00000000000000000000021 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B00000000000000000000022 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		B00000000000000000000023 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		B00000000000000000000024 /* TaskZero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskZero.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B00000000000000000000025 /* TaskZeroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskZeroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B00000000000000000000026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B00000000000000000000027 /* TaskZeroIcon.svg */ = {isa = PBXFileReference; lastKnownFileType = image.svg; path = TaskZeroIcon.svg; sourceTree = "<group>"; };
+		B00000000000000000000028 /* ProcessInspectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessInspectorTests.swift; sourceTree = "<group>"; };
+		B00000000000000000000029 /* CleanupConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupConfigurationTests.swift; sourceTree = "<group>"; };
+		B0000000000000000000002A /* TaskZero.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskZero.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E00000000000000000000001 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (
+			C00000000000000000000021 /* Security.framework in Frameworks */,
+			C00000000000000000000022 /* ServiceManagement.framework in Frameworks */,
+			C00000000000000000000023 /* UserNotifications.framework in Frameworks */,
+		); runOnlyForDeploymentPostprocessing = 0; };
+		E00000000000000000000002 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A00000000000000000000009 /* Root */ = {isa = PBXGroup; children = (
+			A00000000000000000000010 /* TaskZero group */,
+			A00000000000000000000019 /* TaskZeroTests */,
+			A00000000000000000000020 /* Products */,
+			A00000000000000000000021 /* Frameworks */,
+		); sourceTree = "<group>"; };
+		A00000000000000000000010 /* TaskZero group */ = {isa = PBXGroup; children = (
+			A00000000000000000000011 /* App */,
+			A00000000000000000000012 /* Models */,
+			A00000000000000000000013 /* Services */,
+			A00000000000000000000014 /* Utilities */,
+			A00000000000000000000015 /* ViewModels */,
+			A00000000000000000000016 /* Views */,
+			A00000000000000000000017 /* Resources */,
+			B00000000000000000000026 /* Info.plist */,
+			B0000000000000000000002A /* TaskZero.entitlements */,
+		); path = TaskZero; sourceTree = "<group>"; };
+		A00000000000000000000011 /* App */ = {isa = PBXGroup; children = (B00000000000000000000001, B00000000000000000000002); path = App; sourceTree = "<group>"; };
+		A00000000000000000000012 /* Models */ = {isa = PBXGroup; children = (B00000000000000000000003, B00000000000000000000004, B00000000000000000000005); path = Models; sourceTree = "<group>"; };
+		A00000000000000000000013 /* Services */ = {isa = PBXGroup; children = (B00000000000000000000006, B00000000000000000000007, B00000000000000000000008, B00000000000000000000009, B0000000000000000000000A, B0000000000000000000000B, B0000000000000000000000C, B0000000000000000000000D, B0000000000000000000000E, B0000000000000000000000F); path = Services; sourceTree = "<group>"; };
+		A00000000000000000000014 /* Utilities */ = {isa = PBXGroup; children = (B00000000000000000000010, B00000000000000000000011, B00000000000000000000012); path = Utilities; sourceTree = "<group>"; };
+		A00000000000000000000015 /* ViewModels */ = {isa = PBXGroup; children = (B00000000000000000000013, B00000000000000000000014, B00000000000000000000015); path = ViewModels; sourceTree = "<group>"; };
+		A00000000000000000000016 /* Views */ = {isa = PBXGroup; children = (B00000000000000000000016, B00000000000000000000017, B00000000000000000000018, B00000000000000000000019, B0000000000000000000001A, B0000000000000000000001B, B0000000000000000000001C); path = Views; sourceTree = "<group>"; };
+		A00000000000000000000017 /* Resources */ = {isa = PBXGroup; children = (B0000000000000000000001D, A00000000000000000000018); path = Resources; sourceTree = "<group>"; };
+		A00000000000000000000018 /* Branding */ = {isa = PBXGroup; children = (B00000000000000000000027); path = Branding; sourceTree = "<group>"; };
+		A00000000000000000000019 /* TaskZeroTests */ = {isa = PBXGroup; children = (B0000000000000000000001E, B0000000000000000000001F, B00000000000000000000020, B00000000000000000000028, B00000000000000000000029); path = TaskZeroTests; sourceTree = "<group>"; };
+		A00000000000000000000020 /* Products */ = {isa = PBXGroup; children = (B00000000000000000000024, B00000000000000000000025); name = Products; sourceTree = "<group>"; };
+		A00000000000000000000021 /* Frameworks */ = {isa = PBXGroup; children = (B00000000000000000000021, B00000000000000000000022, B00000000000000000000023); name = Frameworks; sourceTree = "<group>"; };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A00000000000000000000003 /* TaskZero */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F00000000000000000000002 /* Build configuration list for PBXNativeTarget "TaskZero" */;
+			buildPhases = (E00000000000000000000003, E00000000000000000000001, E00000000000000000000004);
+			buildRules = ();
+			dependencies = ();
+			name = TaskZero;
+			productName = TaskZero;
+			productReference = B00000000000000000000024 /* TaskZero.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A00000000000000000000004 /* TaskZeroTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F00000000000000000000003 /* Build configuration list for PBXNativeTarget "TaskZeroTests" */;
+			buildPhases = (E00000000000000000000005, E00000000000000000000002, E00000000000000000000006);
+			buildRules = ();
+			dependencies = (D00000000000000000000002 /* PBXTargetDependency */);
+			name = TaskZeroTests;
+			productName = TaskZeroTests;
+			productReference = B00000000000000000000025 /* TaskZeroTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A00000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 2720;
+				TargetAttributes = {
+					A00000000000000000000003 = { CreatedOnToolsVersion = 27.2; };
+					A00000000000000000000004 = { CreatedOnToolsVersion = 27.2; TestTargetID = A00000000000000000000003; };
+				};
+			};
+			buildConfigurationList = F00000000000000000000001 /* Build configuration list for PBXProject "TaskZero" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, Base);
+			mainGroup = A00000000000000000000009;
+			productRefGroup = A00000000000000000000020 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (A00000000000000000000003, A00000000000000000000004);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E00000000000000000000004 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (C0000000000000000000001D /* Assets.xcassets in Resources */); runOnlyForDeploymentPostprocessing = 0; };
+		E00000000000000000000006 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E00000000000000000000003 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (
+			C00000000000000000000001, C00000000000000000000002,
+			C00000000000000000000003, C00000000000000000000004, C00000000000000000000005,
+			C00000000000000000000006, C00000000000000000000007, C00000000000000000000008, C00000000000000000000009, C0000000000000000000000A, C0000000000000000000000B, C0000000000000000000000C, C0000000000000000000000D, C0000000000000000000000E, C0000000000000000000000F,
+			C00000000000000000000010, C00000000000000000000011, C00000000000000000000012,
+			C00000000000000000000013, C00000000000000000000014, C00000000000000000000015,
+			C00000000000000000000016, C00000000000000000000017, C00000000000000000000018, C00000000000000000000019, C0000000000000000000001A, C0000000000000000000001B, C0000000000000000000001C,
+		); runOnlyForDeploymentPostprocessing = 0; };
+		E00000000000000000000005 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (C0000000000000000000001E, C0000000000000000000001F, C00000000000000000000020, C00000000000000000000024, C00000000000000000000025); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D00000000000000000000002 /* PBXTargetDependency */ = {isa = PBXTargetDependency; target = A00000000000000000000003 /* TaskZero */; targetProxy = D00000000000000000000001 /* PBXContainerItemProxy */; };
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F00000000000000000000010 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F00000000000000000000011 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		F00000000000000000000012 /* Debug TaskZero */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_ENTITLEMENTS = TaskZero/TaskZero.entitlements;
+				CURRENT_PROJECT_VERSION = 2;
+				DEFINES_MODULE = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TaskZero/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = net.ahmadfaridabbas.TaskZero;
+				PRODUCT_NAME = TaskZero;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F00000000000000000000013 /* Release TaskZero */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_ENTITLEMENTS = TaskZero/TaskZero.entitlements;
+				CURRENT_PROJECT_VERSION = 2;
+				DEFINES_MODULE = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TaskZero/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = net.ahmadfaridabbas.TaskZero;
+				PRODUCT_NAME = TaskZero;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		F00000000000000000000014 /* Debug Tests */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGNING_ALLOWED = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.ahmadfaridabbas.TaskZeroTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaskZero.app/Contents/MacOS/TaskZero";
+			};
+			name = Debug;
+		};
+		F00000000000000000000015 /* Release Tests */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGNING_ALLOWED = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.ahmadfaridabbas.TaskZeroTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaskZero.app/Contents/MacOS/TaskZero";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F00000000000000000000001 /* Build configuration list for PBXProject "TaskZero" */ = {isa = XCConfigurationList; buildConfigurations = (F00000000000000000000010, F00000000000000000000011); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		F00000000000000000000002 /* Build configuration list for PBXNativeTarget "TaskZero" */ = {isa = XCConfigurationList; buildConfigurations = (F00000000000000000000012, F00000000000000000000013); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		F00000000000000000000003 /* Build configuration list for PBXNativeTarget "TaskZeroTests" */ = {isa = XCConfigurationList; buildConfigurations = (F00000000000000000000014, F00000000000000000000015); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+	};
+	rootObject = A00000000000000000000001 /* Project object */;
+}
